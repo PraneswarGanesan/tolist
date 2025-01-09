@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 300px;
+      padding: 10px;
+      margin: 0;
+    }
+    .header {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .task-list {
+      margin-top: 10px;
+      list-style-type: none;
+      padding: 0;
+    }
+    .task-list li {
+      margin-bottom: 10px;
+    }
+    button {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">Your Tasks</div>
+  <div id="task-section">
+    <ul id="task-list" class="task-list">
+      <!-- Task items will be dynamically inserted here -->
+    </ul>
+    <button id="add-task-btn">Add Task</button>
+  </div>
+
+  <script>
+    // Handle adding new tasks
+    document.getElementById('add-task-btn').addEventListener('click', () => {
+      let task = prompt("Enter your new task:");
+      if (task) {
+        const taskList = document.getElementById('task-list');
+        const listItem = document.createElement('li');
+        listItem.textContent = task;
+        taskList.appendChild(listItem);
+      }
+    });
+
+    // Example task to display on load
+    window.onload = () => {
+      const taskList = document.getElementById('task-list');
+      const exampleTask = document.createElement('li');
+      exampleTask.textContent = "Example Task";
+      taskList.appendChild(exampleTask);
+    };
+  </script>
+</body>
+</html>
